@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pick & Drop Services</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 90%;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            padding: 20px 0;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            width: 300px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h2 {
+            color: #333;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 16px;
+            color: #555;
+            margin: 5px 0;
+        }
+
+        .accept-btn, .reject-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 5px;
+            transition: background-color 0.2s ease-in-out;
+            font-size: 16px;
+        }
+
+        .accept-btn {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .accept-btn:hover {
+            background-color: #218838;
+        }
+
+        .reject-btn {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .reject-btn:hover {
+            background-color: #c82333;
+        }
+
+        .booked {
+            color: green;
+            font-weight: bold;
+        }
+
+        /* Media Queries */
+        @media (max-width: 1200px) {
+            .container {
+                width: 95%;
+                justify-content: space-around;
+            }
+            .card {
+                width: 260px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .card {
+                width: 80%;
+                margin: 10px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .card h2 {
+                font-size: 20px;
+            }
+            .card p {
+                font-size: 14px;
+            }
+            .accept-btn, .reject-btn {
+                padding: 8px 15px;
+                font-size: 14px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Available Bookings</h1>
+    <div class="container" id="bookings">
+        <!-- Bookings will be loaded here -->
+    </div>
+    <script>
+        // Retrieve driver info from Local Storage
+        const driverInfo = JSON.parse(localStorage.getItem('driverInfo'));
+        const driverUsername = driverInfo ? driverInfo.username : null;
+
+        if (!driverUsername) {
+            alert('No driver information found. Please log in.');
+            window.location.href = '/driver-login.html'; // Redirect to login page if no username
+        } else {
+            console.log('Driver username:', driverUsername);
+        }
+
+        // Fetch and display bookings
+        async function fetchBookings() {
+            try {
+                const response = await fetch(`/api/bookings/${driverUsername}`);
+                const bookings = await response.json();
+                const container = document.getElementById('bookings');
+
+                container.innerHTML = ''; // Clear container
+
+                bookings.slice(0, 5).forEach(booking => { // Show only the top 5 unaccepted bookings
+                    const card = document.createElement('div');
+                    card.classList.add('card');
+
+                    card.innerHTML = `
+                        <h2>Booking ID: ${booking._id}</h2>
+                        <p>Name: ${booking.fullName}</p>
+                        <p>Email: ${booking.email}</p>
+                        <p>Passengers: ${booking.passengers}</p>
+                        <p>From: ${booking.from}</p>
+                        <p>Destination: ${booking.destination}</p>
+                        <p>Phone: ${booking.phone}</p>
+                        <p>Date: ${booking.date}</p>
+                        <p>Time: ${booking.time}</p>
+                        <button class="accept-btn" onclick="acceptBooking('${booking._id}')">Accept</button>
+                        <button class="reject-btn" onclick="rejectBooking('${booking._id}')">Reject</button>
+                    `;
+
+                    container.appendChild(card);
+                });
+            } catch (error) {
+                console.error('Error fetching bookings:', error);
+            }
+        }
+
+        // Function to accept a booking
+        async function acceptBooking(bookingId) {
+            try {
+                const response = await fetch(`/api/accept/${bookingId}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ driverUsername })
+                });
+
+                if (response.ok) {
+                    alert('Booking accepted successfully');
+                    fetchBookings(); // Refresh bookings after accepting
+                } else {
+                    alert('Error accepting booking');
+                }
+            } catch (error) {
+                console.error('Error accepting booking:', error);
+            }
+        }
+
+        // Function to reject a booking
+        async function rejectBooking(bookingId) {
+            try {
+                const response = await fetch(`/api/reject/${bookingId}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ driverUsername })
+                });
+
+                if (response.ok) {
+                    alert('Booking rejected');
+                    fetchBookings(); // Refresh bookings after rejecting
+                } else {
+                    alert('Error rejecting booking');
+                }
+            } catch (error) {
+                console.error('Error rejecting booking:', error);
+            }
+        }
+
+        // Polling function to periodically refresh bookings
+        function startPolling() {
+            fetchBookings(); // Initial fetch
+            setInterval(fetchBookings, 5000); // Fetch every 5 seconds
+        }
+
+        // Call startPolling when the page loads
+        window.onload = startPolling;
+    </script>
+</body>
+</html>
