@@ -4,123 +4,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <meta name="description" content="Holmes Chapel Taxis - Reliable taxi and cab service in Holmes Chapel. Book a taxi near you for fast and efficient transportation."> -->
     <meta name="description" content="Holmes Chapel Taxis offers reliable taxi services, local cabs, airport transfers, and more in Holmes Chapel. Contact us for prompt and efficient transportation!">
     <meta name="keywords" content="taxi service, holmes chapel taxis, cab service, taxi near me, taxi service near me, cabs near me, cab booking, local taxi near me, taxi company near me, local taxi, booking com taxi, taxi number, uber taxi service, ride services">
     <meta name="robots" content="index, follow">
     <meta property="og:title" content="Drive Booking - Book Your Drive Online">
-     <!-- Additional meta tags -->
-     <meta name="author" content="Holmes Chapel Taxis">
-     <meta name="reply-to" content="info@holmeschapeltaxis.com">
-     <meta name="geo.placename" content="Holmes Chapel">
-     <meta name="geo.region" content="UK">
-     <!-- Open Graph Meta Tags -->
-     <meta property="og:locale" content="en_GB">
-     <meta property="og:type" content="website">
-     <meta property="og:title" content="Holmes Chapel Taxis | Reliable Taxi Service in Holmes Chapel">
-     <meta property="og:description" content="Holmes Chapel Taxis offers reliable taxi services, local cabs, airport transfers, and more in Holmes Chapel. Contact us for prompt transportation!">
-     <meta property="og:url" content="https://www.holmeschapeltaxis.com/">
-     <meta property="og:site_name" content="Holmes Chapel Taxis">
-    <meta name="google-site-verification" content="1bP6aZ8mZH2BBV4kFEhnPZ_mDFNc0tqvA4cP9arWBZM" />
+    <meta property="og:site_name" content="Holmes Chapel Taxis">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Holmes Chapel Taxis offers reliable taxi services, local cabs, airport transfers, and more in Holmes Chapel. Contact us for prompt transportation!">
+    <meta property="og:url" content="https://www.holmeschapeltaxis.com/">
+    <meta name="author" content="Holmes Chapel Taxis">
     <title>Holmes Chapel Taxis - Reliable Local Taxi & Cab Service</title>
-
-        <!-- Structured Data (Schema.org) -->
-        <script type="application/ld+json">
-            {
-              "@context": "https://schema.org",
-              "@type": "WebSite",
-              "name": "Holmes Chapel Taxis",
-              "description": "Holmes Chapel Taxis offers reliable taxi services, local cabs, airport transfers, and more in Holmes Chapel. Contact us for prompt and efficient transportation!",
-              "url": "https://www.holmeschapeltaxis.com/",
-              "publisher": {
-                "@type": "Organization",
-                "name": "Holmes Chapel Taxis",
-              },
-              "potentialAction": {
-                "@type": "SearchAction",
-                "target": "https://www.holmeschapeltaxis.com/search?q={search_term_string}",
-                "query-input": "required name=search_term_string"
-              }
-            }
-        <!-- Structured data (Schema.org) -->
-            <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "LocalBusiness",
-                "name": "Holmes Chapel Taxis",
-                "description": "...",
-                "address": {
-                    "@type": "PostalAddress",
-                    "streetAddress": "123 Main St",
-                    "addressLocality": "Holmes Chapel",
-                    "addressRegion": "UK"
-                },
-                "openingHours": [
-                    {
-                        "@type": "OpeningHoursSpecification",
-                        "dayOfWeek": [
-                            "Monday",
-                            "Tuesday",
-                            "Wednesday",
-                            "Thursday",
-                            "Friday",
-                            "Saturday",
-                            "Sunday"
-                        ],
-                        "opens": "08:00",
-                        "closes": "18:00"
-                    }
-                ]
-            }
-            </script>
     
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <script src="https://use.fontawesome.com/3408b2930e.js"></script>
-    
+
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Roboto', sans-serif;
         }
 
         body {
-            background-color: #f4f4f4;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            background-color: #121212;
+            color: #e0e0e0;
             min-height: 100vh;
-            padding: 20px;
+            overflow-y: scroll; /* Enable scrolling */
+            position: relative;
+            scrollbar-width: none; /* For Firefox */
+        }
+
+        body::-webkit-scrollbar {
+            display: none; /* For Chrome, Safari, and Edge */
+        }
+
+        /* Background Video */
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.7;
         }
 
         .container {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background: rgba(55, 55, 55, 0.85); /* Slight transparency */
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
             width: 100%;
             max-width: 600px;
-            padding: 20px;
+            margin: 0 auto;
+            margin-top: 5%;
+            position: relative;
+            z-index: 2; /* Content will always be above the video */
         }
 
         h1 {
-            font-size: 2rem;
-            color: #333;
-            text-align: center;
-            letter-spacing: 1px;
-            margin-bottom: 20px;
-        }
-
-        h2.heading {
-            font-size: 1.5rem;
-            color: #666;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #f5f5f5;
             text-align: center;
             margin-bottom: 20px;
             text-transform: uppercase;
+            letter-spacing: 1.5px;
         }
 
-        form {
-            display: flex;
-            flex-direction: column;
+        h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #bbbbbb;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .heading {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: #ffcc00;
+            text-transform: uppercase;
+            text-align: center;
         }
 
         input[type="text"],
@@ -129,43 +98,28 @@
         input[type="tel"],
         input[type="date"],
         input[type="time"] {
+            background-color: #333333;
+            border: 1px solid #444;
+            border-radius: 8px;
+            color: #f5f5f5;
             padding: 12px;
-            margin: 8px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 1rem;
+            margin-bottom: 15px;
             width: 100%;
+            font-size: 1rem;
         }
 
-        .heading-div {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-    }
-
-    .copy_btn {
-        cursor: copy;
-        background-color: #cdff90;
-        color: rgb(0, 0, 0);
-        padding: 8px 16px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        font-size: 1rem;
-        width: auto; /* Prevents full width */
-        margin-top: 10px;
-    }
-
+        input::placeholder {
+            color: #aaaaaa;
+        }
 
         button {
-            padding: 12px;
+            padding: 12px 20px;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             font-size: 1rem;
+            font-weight: 500;
             cursor: pointer;
-            width: 100%;
-            margin: 10px 0;
+            transition: background-color 0.3s ease;
         }
 
         .b1 {
@@ -173,33 +127,57 @@
             color: white;
         }
 
+        .b1:hover {
+            background-color: #218838;
+        }
+
         .b2 {
             background-color: #dc3545;
             color: white;
         }
 
-        button:hover {
-            opacity: 0.9;
+        .b2:hover {
+            background-color: #c82333;
+        }
+
+        .copy_btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .copy_btn:hover {
+            background-color: #0056b3;
         }
 
         button[onclick] {
-            background-color: #007bff;
-            color: white;
+            background-color: #ffc107;
+            color: #333;
             margin-top: 15px;
         }
 
-        /* .heading-div {
-            text-align: center;
-            margin-bottom: 20px;
-        } */
+        button[onclick]:hover {
+            background-color: #e0a800;
+        }
 
+        .heading-div {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        /* Tablet and below */
         @media (max-width: 768px) {
             h1 {
                 font-size: 1.8rem;
             }
 
-            h2.heading {
-                font-size: 1.2rem;
+            h2 {
+                font-size: 1.1rem;
             }
 
             input {
@@ -209,14 +187,19 @@
             button {
                 font-size: 0.9rem;
             }
+
+            .container {
+                padding: 20px;
+            }
         }
 
+        /* Small devices */
         @media (max-width: 480px) {
             h1 {
                 font-size: 1.5rem;
             }
 
-            h2.heading {
+            h2 {
                 font-size: 1rem;
             }
 
@@ -231,58 +214,59 @@
 
             .container {
                 padding: 15px;
+                width: 100%;
+                height: 100vh; /* Make the card full screen on mobile devices */
+                margin: 0;
+                border-radius: 0;
+            }
+
+            .copy_btn {
+                padding: 6px 10px;
+                font-size: 0.8rem;
             }
         }
     </style>
-    
-    <!-- Structured Data (JSON-LD for LocalBusiness) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "TaxiService",
-      "name": "Holmes Chapel Taxis",
-      "description": "Reliable taxi and cab service in Holmes Chapel. Book a taxi near you for fast and efficient transportation.",
-      "areaServed": "Holmes Chapel",
-      "url": "https://www.holmeschapeltaxis.com",
-      "telephone": "+123456789",
-      "openingHours": "Mo-Su 24 hours",
-      "priceRange": "$$"
-    }
-    </script>
 </head>
 
 <body>
-    <div class="container">
-        <div class="content1">
-            <form action="https://www.holmeschapeltaxis.com/" method="POST">
-                <h1>Holmes Chapel Taxis</h1>
-                <div class="heading-div">
-                    <h2>Call for Instant Booking:</h2>
-                    <h2 class="number-h2">0044 7423587661 <button class="copy_btn" onclick="copyText()">copy number</button></h2>
-                    <h2 class="heading">Reliable Taxi & Cab Service in Holmes Chapel</h2>
-                </div>
-            
-                <input type="text" name="fullName" placeholder="FULL NAME" required>
-                <input type="email" name="email" placeholder="VALID EMAIL" required>
-                <input type="number" name="passengers" placeholder="NUMBER OF PASSENGERS" required>
-                <input type="text" name="from" placeholder="FROM" required>
-                <input type="text" name="destination" placeholder="DESTINATION" required>
-                <input type="tel" name="phone" placeholder="PHONE NUMBER" required>
-                <input type="date" name="date" required>
-                <input type="time" name="time" required>
-                <button class="b1">BOOK THE RIDE</button>
-                <button class="b2" type="reset">RESET</button>
-            </form>
+    <!-- Background Video -->
+    <video class="video-background" autoplay muted loop>
+        <source src="853826-hd_1920_1080_25fps.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
 
-            <button onclick="window.location.href='driver-login.html'">ARE YOU A DRIVER?</button>
+    <div class="container">
+        <h1>Holmes Chapel Taxis</h1>
+        <div class="heading-div">
+            <h2>Call for Instant Booking:</h2>
+            <h2 class="number-h2">0044 7423587661 
+                <button class="copy_btn" onclick="copyText()">Copy</button>
+            </h2>
+            <div class="heading">Reliable Taxi & Cab Service in Holmes Chapel</div>
         </div>
+
+        <form action="https://www.holmeschapeltaxis.com/" method="POST">
+            <input type="text" name="fullName" placeholder="Full Name" required>
+            <input type="email" name="email" placeholder="Valid Email" required>
+            <input type="number" name="passengers" placeholder="Number of Passengers" required>
+            <input type="text" name="from" placeholder="From" required>
+            <input type="text" name="destination" placeholder="Destination" required>
+            <input type="tel" name="phone" placeholder="Phone Number" required>
+            <input type="date" name="date" required>
+            <input type="time" name="time" required>
+            <button class="b1" type="submit">Book the Ride</button>
+            <button class="b2" type="reset">Reset</button>
+        </form>
+
+        <button onclick="window.location.href='driver-login.html'">Are you a Driver?</button>
     </div>
+
     <script>
         function copyText() {
             const text = "0044 7423587661";
-            navigator.clipboard.writeText(text).then(function() {
+            navigator.clipboard.writeText(text).then(function () {
                 alert("Copied: " + text);
-            }, function(err) {
+            }, function (err) {
                 console.error("Failed to copy text: ", err);
             });
         }
