@@ -46,7 +46,7 @@ const Booking = mongoose.model('Booking', bookingSchema);
 // Define the schema for drivers
 const driverSchema = new mongoose.Schema({
     username: { type: String, required: true, unique: true },
-    password: { type: String, required: true }, // Storing plain text password for now
+    password: { type: String, required: true }, 
     phone: String,
     email: String
 });
