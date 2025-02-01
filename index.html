@@ -4,17 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Knutsford & Holmes Chapel Taxis provides reliable taxi services, airport transfers, railway station pickups, and local cab bookings. Offering affordable and prompt transportation in Knutsford, Holmes Chapel, and surrounding areas. Book now for stress-free travel!">
-    <meta name="keywords" content="Holmes Chapel taxis, Knutsford taxis, taxi service, cab service, airport taxis, airport cabs, Knutsford cabs, Holmes Chapel cabs, taxi near me, cabs near me, local taxi near me, airport transfers, local taxi, railway station taxis, railway station cabs, train station taxis, train station cabs, booking com taxi, taxi number, Knutsford & Holmes Chapel taxi service, ride services, transportation services, airport transportation, railway station transportation, reliable taxis, executive taxis, long-distance taxis">
+    <meta name="description" content="Holmes Chapel Taxis provides reliable taxi services, airport transfers, railway station pickups, and local cab bookings. Offering affordable and prompt transportation in Holmes Chapel, Holmes Chapel, and surrounding areas. Book now for stress-free travel!">
+    <meta name="keywords" content="Holmes Chapel taxis, Holmes Chapel taxis, taxi service, cab service, airport taxis, airport cabs, Holmes Chapel cabs, Holmes Chapel cabs, taxi near me, cabs near me, local taxi near me, airport transfers, local taxi, railway station taxis, railway station cabs, train station taxis, train station cabs, booking com taxi, taxi number, Holmes Chapel taxi service, ride services, transportation services, airport transportation, railway station transportation, reliable taxis, executive taxis, long-distance taxis">
     <meta name="robots" content="index, follow">
     <meta property="og:title" content="Drive Booking - Book Your Drive Online">
-    <meta property="og:site_name" content="Knutsford & Holmes Chapel Taxis">
+    <meta property="og:site_name" content="Holmes Chapel Taxis">
     <meta property="og:locale" content="en_GB">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="Knutsford & Holmes Chapel Taxis offers reliable taxi services, local cabs, airport transfers, and more in Holmes Chapel. Contact us for prompt transportation!">
+    <meta property="og:description" content="Holmes Chapel Taxis offers reliable taxi services, local cabs, airport transfers, and more in Holmes Chapel. Contact us for prompt transportation!">
     <meta property="og:url" content="https://www.holmeschapeltaxis.com/">
-    <meta name="author" content="Knutsford & Holmes Chapel Taxis">
-    <title>Knutsford & Holmes Chapel Taxis - Reliable Local Taxi & Cab Service</title>
+    <meta name="author" content="Holmes Chapel Taxis">
+    <title>Holmes Chapel Taxis - Reliable Taxi & Cab Service</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="icon" href="logo.ico" type="image/x-icon">
@@ -29,16 +29,17 @@
         }
 
         body {
-            background-color: #121212;
+            background-color: #0a0a0a;
             color: #e0e0e0;
             min-height: 100vh;
-            overflow-y: scroll; /* Enable scrolling */
+            overflow-y: scroll;
             position: relative;
-            scrollbar-width: none; /* For Firefox */
+            scrollbar-width: none;
+            opacity: 0.9;
         }
 
         body::-webkit-scrollbar {
-            display: none; /* For Chrome, Safari, and Edge */
+            display: none;
         }
 
         /* Background Video */
@@ -54,26 +55,47 @@
         }
 
         .container {
-            background: rgba(55, 55, 55, 0.85); /* Slight transparency */
-            border-radius: 12px;
+            background: linear-gradient(145deg, #1e1e2f, #2a2a40);
+            border-radius: 20px;
             padding: 30px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-            width: 100%;
+            box-shadow: 0 8px 24px rgba(0, 123, 255, 0.3);
+            width: 90%; /* Adjusted for smaller screens */
             max-width: 600px;
             margin: 0 auto;
             margin-top: 5%;
             position: relative;
-            z-index: 2; /* Content will always be above the video */
+            z-index: 2;
         }
 
         h1 {
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             font-weight: 700;
-            color: #f5f5f5;
+            color: #4fc3f7;
             text-align: center;
             margin-bottom: 20px;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 4px;
+            animation: neonGlow 2s infinite alternate, neonFlicker 1.5s infinite;
+        }
+
+        /* Neon Glow Animation */
+        @keyframes neonGlow {
+            0% {
+                text-shadow: 0 0 5px #4fc3f7, 0 0 10px #4fc3f7, 0 0 20px #4fc3f7, 0 0 40px #4fc3f7, 0 0 80px #4fc3f7;
+            }
+            100% {
+                text-shadow: 0 0 10px #4fc3f7, 0 0 20px #4fc3f7, 0 0 40px #4fc3f7, 0 0 80px #4fc3f7, 0 0 120px #4fc3f7;
+            }
+        }
+
+        /* Neon Flicker Animation */
+        @keyframes neonFlicker {
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+                opacity: 1;
+            }
+            20%, 24%, 55% {
+                opacity: 0.5;
+            }
         }
 
         h2 {
@@ -88,9 +110,10 @@
             font-size: 1.1rem;
             font-weight: 500;
             margin-bottom: 20px;
-            color: #ffcc00;
+            color: #81c784;
             text-transform: uppercase;
             text-align: center;
+            text-shadow: 0 0 10px #81c784, 0 0 20px #81c784;
         }
 
         input[type="text"],
@@ -100,13 +123,19 @@
         input[type="date"],
         input[type="time"] {
             background-color: #333333;
-            border: 1px solid #444;
+            border: 1px solid #4fc3f7;
             border-radius: 8px;
             color: #f5f5f5;
             padding: 12px;
             margin-bottom: 15px;
             width: 100%;
             font-size: 1rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        input:focus {
+            border-color: #81c784;
+            box-shadow: 0 0 10px #81c784, 0 0 20px #81c784;
         }
 
         input::placeholder {
@@ -120,29 +149,31 @@
             font-size: 1rem;
             font-weight: 500;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
         .b1 {
-            background-color: #28a745;
-            color: white;
+            background-color: #4fc3f7;
+            color: #000;
         }
 
         .b1:hover {
-            background-color: #218838;
+            background-color: #3fb0e0;
+            transform: scale(1.05);
         }
 
         .b2 {
-            background-color: #dc3545;
-            color: white;
+            background-color: #81c784;
+            color: #000;
         }
 
         .b2:hover {
-            background-color: #c82333;
+            background-color: #6bb06e;
+            transform: scale(1.05);
         }
 
         .copy_btn {
-            background-color: #007bff;
+            background-color: #4fc3f7;
             color: white;
             border: none;
             padding: 8px 12px;
@@ -150,20 +181,23 @@
             font-size: 0.9rem;
             margin-left: 10px;
             cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
         .copy_btn:hover {
-            background-color: #0056b3;
+            background-color: #3fb0e0;
+            transform: scale(1.05);
         }
 
         button[onclick] {
-            background-color: #ffc107;
-            color: #333;
+            background-color: #ffb74d;
+            color: #000;
             margin-top: 15px;
         }
 
         button[onclick]:hover {
-            background-color: #e0a800;
+            background-color: #ffa726;
+            transform: scale(1.05);
         }
 
         .heading-div {
@@ -171,54 +205,103 @@
             margin-bottom: 30px;
         }
 
-        /* Tablet and below */
+        /* Stylish Error Popup */
+        .error-popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #ff4444;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+            z-index: 1000;
+            text-align: center;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Responsiveness for Tablets */
         @media (max-width: 768px) {
             h1 {
-                font-size: 1.8rem;
+                font-size: 2rem; /* Slightly smaller heading */
+                letter-spacing: 3px;
             }
 
             h2 {
                 font-size: 1.1rem;
             }
 
-            input {
+            .heading {
+                font-size: 1rem;
+            }
+
+            input[type="text"],
+            input[type="email"],
+            input[type="number"],
+            input[type="tel"],
+            input[type="date"],
+            input[type="time"] {
+                padding: 10px;
                 font-size: 0.9rem;
             }
 
             button {
+                padding: 10px 18px;
                 font-size: 0.9rem;
             }
 
             .container {
                 padding: 20px;
+                width: 90%; /* Adjusted for tablets */
             }
         }
 
-        /* Small devices */
+        /* Responsiveness for Mobile Devices */
         @media (max-width: 480px) {
             h1 {
-                font-size: 1.5rem;
+                font-size: 1.8rem; /* Smaller heading for mobile */
+                letter-spacing: 2px;
             }
 
             h2 {
                 font-size: 1rem;
             }
 
-            input {
+            .heading {
+                font-size: 0.9rem;
+            }
+
+            input[type="text"],
+            input[type="email"],
+            input[type="number"],
+            input[type="tel"],
+            input[type="date"],
+            input[type="time"] {
+                padding: 8px;
                 font-size: 0.8rem;
-                padding: 10px;
             }
 
             button {
+                padding: 8px 16px;
                 font-size: 0.8rem;
             }
 
             .container {
                 padding: 15px;
-                width: 100%;
-                height: 100vh; /* Make the card full screen on mobile devices */
-                margin: 0;
-                border-radius: 0;
+                width: 95%; /* Full width for mobile */
+                margin-top: 10%; /* Adjusted margin for better spacing */
+                border-radius: 10px; /* Smaller border radius for mobile */
             }
 
             .copy_btn {
@@ -237,13 +320,13 @@
     </video>
 
     <div class="container">
-        <h1>Knutsford & Holmes Chapel</h1>
+        <h1>Holmes Chapel Taxis</h1>
         <div class="heading-div">
             <h2>Call for Instant Booking:</h2>
             <h2 class="number-h2">0044 7423587661 
                 <button class="copy_btn" onclick="copyText()">Copy</button>
             </h2>
-            <div class="heading">Reliable Taxi & Cab Service in Holmes Chapel & Knutsford</div>
+            <div class="heading">Reliable Taxi & Cab Service in Holmes Chapel</div>
         </div>
 
         <form action="https://www.holmeschapeltaxis.com/" method="POST">
